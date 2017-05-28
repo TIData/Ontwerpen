@@ -3,7 +3,7 @@ package dynamicproxy;
 import domein.NonOwnerInvocationHandler;
 import domein.OwnerInvocationHandler;
 import domein.PersonBean;
-import domein.PersonBeanImpl;
+import domein.PersonBeanImplementation;
 import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,8 +33,7 @@ public class DynamicProxyTestDrive {
         }
         System.out.println("Rating is " + ownerProxy.getHotOrNotRating());
 
-        PersonBean kelly = getPersonFromDatabase("Kelly Klosure");
-        PersonBean nonOwnerProxy = getNonOwnerProxy(kelly);
+        PersonBean nonOwnerProxy = getNonOwnerProxy(joe);
         System.out.println("Name is " + nonOwnerProxy.getName());
         try {
             nonOwnerProxy.setInterests("bowling, Go");
@@ -55,14 +54,10 @@ public class DynamicProxyTestDrive {
     }
 
     private PersonBean getNonOwnerProxy(PersonBean person) {
-//UNDO COMMAND COMMENT
-//        return (PersonBean) Proxy.newProxyInstance(
-//                person.getClass().getClassLoader(),
-//                person.getClass().getInterfaces(),
-//                new NonOwnerInvocationHandler(person));
-//
-//Remove return null;
-        return null;
+        return (PersonBean) Proxy.newProxyInstance(
+                person.getClass().getClassLoader(),
+                person.getClass().getInterfaces(),
+                new NonOwnerInvocationHandler(person));
     }
 
     public PersonBean getPersonFromDatabase(String name) {
@@ -70,13 +65,13 @@ public class DynamicProxyTestDrive {
     }
 
     private void initializeDatabase() {
-        PersonBean joe = new PersonBeanImpl();
+        PersonBean joe = new PersonBeanImplementation();
         joe.setName("Joe Javabean");
         joe.setInterests("cars, computers, music");
         joe.setHotOrNotRating(7);
         datingDB.put(joe.getName(), joe);
 
-        PersonBean kelly = new PersonBeanImpl();
+        PersonBean kelly = new PersonBeanImplementation();
         kelly.setName("Kelly Klosure");
         kelly.setInterests("ebay, movies, music");
         kelly.setHotOrNotRating(6);
