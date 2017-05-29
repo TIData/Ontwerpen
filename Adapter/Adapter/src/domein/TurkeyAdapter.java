@@ -1,7 +1,7 @@
 package domein;
 
 public class TurkeyAdapter implements Duck {
-    
+
     private Turkey turkey;
 
     public TurkeyAdapter(Turkey turkey) {

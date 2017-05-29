@@ -1,7 +1,7 @@
 package domein;
 
 public class Persistence {
-    
+
     private final PersistenceFactory persistenceFactory;
 
     public Persistence(PersistenceFactory persistenceFactory) {

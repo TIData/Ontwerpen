@@ -15,5 +15,4 @@ public class Television {
     public Program getPrevProgram() {
         return surfer.previousChannel().getCurrentProgram();
     }
-
 }

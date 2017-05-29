@@ -1,4 +1,3 @@
-
 package domein;
 
 import exception.InformationRequiredException;
@@ -15,15 +14,15 @@ public class MeetingBuilder extends AppointmentBuilder {
         try {
             appointment = super.getAppointment();
         } finally {
-            if(Objects.isNull(appointment.getEndDate())) {
+            if (Objects.isNull(appointment.getEndDate())) {
                 requiredElements.add(RequiredElement.EndDateRequired);
             }
-            
-            if(!requiredElements.isEmpty()) {
+
+            if (!requiredElements.isEmpty()) {
                 throw new InformationRequiredException(requiredElements);
             }
         }
-        
+
         return appointment;
     }
 }

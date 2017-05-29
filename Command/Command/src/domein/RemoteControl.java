@@ -12,13 +12,13 @@ public class RemoteControl {
         offCommands = new Command[numberCommands];
 
         Command noCommand = new NoCommand();
-        
+
         for (int i = 0; i < numberCommands; i++) {
             onCommands[i] = noCommand;
             offCommands[i] = noCommand;
         }
     }
-    
+
     public void setCommand(int slot, Command onCommand, Command offCommand) {
         onCommands[slot] = onCommand;
         offCommands[slot] = offCommand;
@@ -40,7 +40,7 @@ public class RemoteControl {
             stringBuilder.append("[slot " + i + "]" + onCommands[i].getClass().getName()
                     + "   " + offCommands[i].getClass().getName() + "\n");
         }
-        
+
         return stringBuilder.toString();
     }
 }

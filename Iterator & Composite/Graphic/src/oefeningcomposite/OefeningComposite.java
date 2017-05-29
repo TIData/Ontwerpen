@@ -1,11 +1,14 @@
 package oefeningcomposite;
 
 import domein.*;
+import java.util.Iterator;
 
 public class OefeningComposite {
+
     public static void main(String[] args) {
         new OefeningComposite();
     }
+
     public OefeningComposite() {
         Graphic allGraphics = new Diagram();
         allGraphics.add(new Line(1, 2, 6, 6));
@@ -19,6 +22,11 @@ public class OefeningComposite {
         allGraphics.add(subGraphics1);
         allGraphics.add(new Line(1, 3, 9, 9));
         allGraphics.draw();
-    }
 
+        Iterator iterator = allGraphics.createIterator();
+        while (iterator.hasNext()) {
+            Graphic graphic = (Graphic) iterator.next();
+            graphic.draw();
+        }
+    }
 }

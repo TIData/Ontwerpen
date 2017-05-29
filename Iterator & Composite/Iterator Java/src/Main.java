@@ -15,7 +15,7 @@ public class Main {
         DinerMenu dinerMenu = new DinerMenu();
         CafeMenu cafeMenu = new CafeMenu();
         List<Menu> menu = new ArrayList<>();
-        
+
         menu.add(dinerMenu);
         menu.add(pancakeHouseMenu);
         menu.add(cafeMenu);

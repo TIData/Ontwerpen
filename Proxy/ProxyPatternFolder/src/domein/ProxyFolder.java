@@ -3,8 +3,8 @@ package domein;
 public class ProxyFolder implements IFolder {
 
     private IFolder folder;
-    
-    public ProxyFolder(){
+
+    public ProxyFolder() {
         folder = new Folder();
     }
 

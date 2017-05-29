@@ -3,7 +3,7 @@ package domein;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class PancakeHouseMenu implements Menu{
+public class PancakeHouseMenu implements Menu {
 
     private ArrayList<MenuItem> menuItems;
 

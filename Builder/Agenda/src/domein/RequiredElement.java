@@ -2,6 +2,6 @@ package domein;
 
 public enum RequiredElement {
 
-    StartDateRequired, EndDateRequired, 
+    StartDateRequired, EndDateRequired,
     DescriptionRequired, AttendeeRequired, LocationRequired;
 }

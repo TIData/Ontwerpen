@@ -1,5 +1,7 @@
 package domein;
 
+import java.util.Iterator;
+
 public class Rectangle extends Graphic {
 
     private int x, y, width, height;
@@ -12,9 +14,11 @@ public class Rectangle extends Graphic {
     }
 
     public void draw() {
-        System.out.printf(
-                "rectangle (%d,%d), width:%d, height:%d\n",
-                x, y, width, height);
+        System.out.printf("rectangle (%d,%d), width:%d, height:%d\n", x, y, width, height);
     }
 
+    @Override
+    public Iterator<Graphic> createIterator() {
+        return new NulIterator();
+    }
 }

@@ -12,7 +12,7 @@ public class Template {
         System.out.println("Making coffee");
         Coffee coffee = new Coffee();
         coffee.prepareRecipe();
-        
+
         System.out.println("Making tea");
         new Tea().prepareRecipe();
 

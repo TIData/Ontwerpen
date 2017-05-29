@@ -6,7 +6,6 @@ import domein.XMLPersistenceFactory;
 import domein.Persistence;
 import domein.BinaryPersistenceFactory;
 
-
 public class StartUp {
 
     private Persistence persistence;

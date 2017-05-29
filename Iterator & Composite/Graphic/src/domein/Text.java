@@ -1,7 +1,8 @@
 package domein;
 
-public class Text extends Graphic
-{
+import java.util.Iterator;
+
+public class Text extends Graphic {
 
     private String text;
     private int x, y;
@@ -14,5 +15,10 @@ public class Text extends Graphic
 
     public void draw() {
         System.out.printf("text: %s (%d,%d)\n", text, x, y);
+    }
+
+    @Override
+    public Iterator<Graphic> createIterator() {
+        return new NulIterator();
     }
 }

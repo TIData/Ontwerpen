@@ -26,6 +26,6 @@ public class CafeMenu implements Menu {
 
     @Override
     public String getTitle() {
-        return "Café menu";  
+        return "Café menu";
     }
 }

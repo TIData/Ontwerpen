@@ -1,10 +1,11 @@
 package domein;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Diagram extends Graphic {
-    
+
     private List<Graphic> graphics = new ArrayList<>();
 
     @Override
@@ -16,12 +17,14 @@ public class Diagram extends Graphic {
     public void add(Graphic graphic) {
         graphics.add(graphic);
     }
-    
-    
-    
+
     @Override
     public void draw() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        graphics.parallelStream().forEach(element -> element.draw());
     }
-//TODO
+
+    @Override
+    public Iterator<Graphic> createIterator() {
+        return graphics.iterator();
+    }
 }

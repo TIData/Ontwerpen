@@ -1,5 +1,4 @@
 
-
 import domein.Calculator;
 
 public class Main {

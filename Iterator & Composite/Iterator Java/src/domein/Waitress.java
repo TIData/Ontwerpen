@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Waitress {
-    
+
     private List<Menu> menu;
 
     public Waitress(List<Menu> menu) {

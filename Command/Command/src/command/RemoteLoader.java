@@ -22,9 +22,9 @@ public class RemoteLoader {
 
         LightOnCommand light1On = new LightOnCommand(light1);
         LightOnCommand light2On = new LightOnCommand(light2);
-        
+
         StereoOnWithCDCommand stereoOn = new StereoOnWithCDCommand(stereo);
-        
+
         LightOffCommand light1Off = new LightOffCommand(light1);
         LightOffCommand light2Off = new LightOffCommand(light2);
         StereoOffCommand stereoOff = new StereoOffCommand(stereo);

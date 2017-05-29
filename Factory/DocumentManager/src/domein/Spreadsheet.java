@@ -8,7 +8,7 @@ public class Spreadsheet extends Document {
 
     @Override
     public void loadFromFile(String filePath) {
-        System.out.println("Load spreadsheet from " + filePath);	
+        System.out.println("Load spreadsheet from " + filePath);
     }
 
     @Override
