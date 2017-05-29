@@ -1,6 +1,6 @@
 package testen;
 
-import domein.EnumerationIterator;
+import domein.EnumerationIteratorAdapter;
 import domein.MenuActie;
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -23,7 +23,7 @@ public class PersistentieTest {
                 = root.children();
 
         Iterator<DefaultMutableTreeNode> it
-                = new EnumerationIterator<DefaultMutableTreeNode>(enumeration);
+                = new EnumerationIteratorAdapter<DefaultMutableTreeNode>(enumeration);
 
         Assert.assertEquals(3, root.getChildCount());
 
@@ -33,7 +33,7 @@ public class PersistentieTest {
         Enumeration<DefaultMutableTreeNode> kinderen = node.children();
 
         Iterator<DefaultMutableTreeNode> itKinderen
-                = new EnumerationIterator<DefaultMutableTreeNode>(kinderen);
+                = new EnumerationIteratorAdapter<DefaultMutableTreeNode>(kinderen);
 
         Assert.assertEquals(3, node.getChildCount());
         DefaultMutableTreeNode nodeKind = itKinderen.next();
@@ -49,7 +49,7 @@ public class PersistentieTest {
         kinderen = node.children();
 
         itKinderen
-                = new EnumerationIterator<DefaultMutableTreeNode>(kinderen);
+                = new EnumerationIteratorAdapter<DefaultMutableTreeNode>(kinderen);
 
         Assert.assertEquals(2, node.getChildCount());
         nodeKind = itKinderen.next();
@@ -59,7 +59,7 @@ public class PersistentieTest {
         kinderen = nodeKind.children();
 
         itKinderen
-                = new EnumerationIterator<DefaultMutableTreeNode>(kinderen);
+                = new EnumerationIteratorAdapter<DefaultMutableTreeNode>(kinderen);
 
         Assert.assertEquals(2, nodeKind.getChildCount());
         nodeKind = itKinderen.next();
@@ -71,7 +71,7 @@ public class PersistentieTest {
         Assert.assertEquals("Help", ((MenuActie) node.getUserObject()).getOmschrijving().trim());
         kinderen = node.children();
 
-        itKinderen = new EnumerationIterator<DefaultMutableTreeNode>(kinderen);
+        itKinderen = new EnumerationIteratorAdapter<DefaultMutableTreeNode>(kinderen);
         Assert.assertEquals(1, node.getChildCount());
         nodeKind = itKinderen.next();
         Assert.assertEquals("Info", ((MenuActie) nodeKind.getUserObject()).getOmschrijving().trim());

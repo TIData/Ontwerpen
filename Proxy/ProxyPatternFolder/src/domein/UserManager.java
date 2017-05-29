@@ -15,19 +15,10 @@ public class UserManager {
         userWithFolderAccess = new HashSet<>();
     }
 
-    /**
-     *
-     * @param user
-     */
     public boolean hasFolderAccess(User user) {
         return userWithFolderAccess.contains(user);
     }
 
-    /**
-     *
-     * @param name
-     * @param passwd
-     */
     public User getUser(String name, String passwd) {
         User user = userMap.get(name);
         if (user == null) {
@@ -39,10 +30,6 @@ public class UserManager {
         return null;
     }
 
-    /**
-     *
-     * @param user
-     */
     public void addUser(User user, boolean folderAccess) {
         userMap.put(user.getUserName(), user);
         if (folderAccess) {

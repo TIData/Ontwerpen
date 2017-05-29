@@ -11,14 +11,15 @@ public class DomeinController {
     }
 
     public String performFolderOperation(String name, String passwd) {
-        String mes = null;
         User user = userManager.getUser(name, passwd);
-        if (user != null) {
-            mes = folder.performOperations();
-        } else {
-            mes = "Invalid user/passwd";
+
+        if (user != null && userManager.hasFolderAccess(user)) {
+            return folder.performOperations();
+        } else if (user != null) {
+            return "No access to folder";
         }
-        return mes;
+        
+        return "Invalid user/password";
     }
 
     private void initUserManager() {

@@ -1,5 +1,6 @@
 package persistentie;
 
+import domein.ApplicatieFout;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Enumeration;
@@ -7,9 +8,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-
-import domein.ApplicatieFout;
-import domein.EnumerationIterator;
+import domein.EnumerationIteratorAdapter;
 import domein.MenuActie;
 
 public class PersistentieBeheerder {
@@ -19,7 +18,7 @@ public class PersistentieBeheerder {
     private PersistentieBeheerder() {
     }
 
-    static public PersistentieBeheerder getInstance() {
+    public static PersistentieBeheerder getInstance() {
         if (instance == null) {
             instance = new PersistentieBeheerder();
         }
@@ -27,6 +26,7 @@ public class PersistentieBeheerder {
     }
 
     public DefaultMutableTreeNode geefMenus() {
+
         final String INNAAM = "menu.txt";
         Scanner input;
 
@@ -40,12 +40,8 @@ public class PersistentieBeheerder {
                 int nummerKind = input.nextInt();
                 String methodeNaam = input.next();
                 String menuItemNaam = input.nextLine();
-                MenuActie menuActie
-                        = new MenuActie(methodeNaam, menuItemNaam,
-                                nummerOuder, nummerKind);
-                DefaultMutableTreeNode node
-                        = new DefaultMutableTreeNode(
-                                menuActie);
+                MenuActie menuActie = new MenuActie(methodeNaam, menuItemNaam, nummerOuder, nummerKind);
+                DefaultMutableTreeNode node = new DefaultMutableTreeNode(menuActie);
                 voegToeAanOuder(root, node);
             }
             input.close();
@@ -61,17 +57,12 @@ public class PersistentieBeheerder {
     private void voegToeAanOuder(DefaultMutableTreeNode root,
             DefaultMutableTreeNode kind) {
         boolean gevonden = false;
-        Enumeration<DefaultMutableTreeNode> enumeration
-                = root.depthFirstEnumeration();
-        //TODO Instantieer adaptor
-        Iterator<DefaultMutableTreeNode> iterator = new EnumerationIterator<>(enumeration);
+        Enumeration<DefaultMutableTreeNode> enumeration = root.depthFirstEnumeration();
+        Iterator<DefaultMutableTreeNode> iterator = new EnumerationIteratorAdapter<>(enumeration);
 
         int ouder = ((MenuActie) kind.getUserObject()).getOuder();
-        //while (enumeration.hasMoreElements() && !gevonden) 
-        while (iterator.hasNext() && !gevonden) {   //TODO gebruik adaptor
-
-            //DefaultMutableTreeNode node = enumeration.nextElement();
-            DefaultMutableTreeNode node = iterator.next(); //TODO gebruik adaptor
+        while (iterator.hasNext() && !gevonden) {
+            DefaultMutableTreeNode node = iterator.next();
             MenuActie menuActie = (MenuActie) node.getUserObject();
 
             if (menuActie.getMenuActieId() == ouder) {
@@ -80,8 +71,7 @@ public class PersistentieBeheerder {
             }
         }
         if (!gevonden) {
-            new ApplicatieFout(String.format("node %d vindt ouder %d niet",
-                    ((MenuActie) kind.getUserObject()).getMenuActieId(), ouder));
+            new ApplicatieFout(String.format("node %d vindt ouder %d niet", ((MenuActie) kind.getUserObject()).getMenuActieId(), ouder));
         }
     }
 }
