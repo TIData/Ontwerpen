@@ -10,15 +10,16 @@ public class Template {
 
     public static void main(String[] args) {
         System.out.println("Making coffee");
-        new Coffee().prepareRecipe();
-        System.out.println();
+        Coffee coffee = new Coffee();
+        coffee.prepareRecipe();
+        
         System.out.println("Making tea");
         new Tea().prepareRecipe();
 
-        System.out.println("Making  coffee");
+        System.out.println("Making coffee");
         CaffeineBeverage beverage = new Coffee();
         beverage.prepareRecipe();
-        System.out.println("Making  tea");
+        System.out.println("Making tea");
         beverage = new Tea();
         beverage.prepareRecipe();
         System.out.println("Making coffee with a hook");

@@ -2,8 +2,9 @@ package domein;
 
 public class WinButton extends Component {
 
-    @Override
     public void show() {
+        // TODO - implement WinButton.show
         System.out.println("show winButton");
     }
+
 }

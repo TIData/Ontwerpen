@@ -1,31 +1,24 @@
 package domein;
 
 import java.util.Iterator;
+import java.util.List;
 
 public class Waitress {
+    
+    private List<Menu> menu;
 
-    private PancakeHouseMenu pancakeHouseMenu;
-    private DinerMenu dinerMenu;
-    private CafeMenu cafeMenu;
-
-    public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu, CafeMenu cafeMenu) {
-        this.pancakeHouseMenu = pancakeHouseMenu;
-        this.dinerMenu = dinerMenu;
-        this.cafeMenu = cafeMenu;
+    public Waitress(List<Menu> menu) {
+        this.menu = menu;
     }
 
     public void printMenu() {
-        System.out.println("MENU\n----\nBREAKFAST");
-        printMenu(pancakeHouseMenu.createIterator());
-
-        System.out.println("\nLUNCH");
-        printMenu(dinerMenu.createIterator());
-
-        System.out.println("\nCAFE");
-        printMenu(cafeMenu.createIterator());
+        menu.forEach(element -> {
+            System.out.println(element.getTitle());
+            printMenu(element.createIterator());
+        });
     }
 
-    private void printMenu(Iterator iterator) {
+    private void printMenu(Iterator<MenuItem> iterator) {
         while (iterator.hasNext()) {
             MenuItem menuItem = (MenuItem) iterator.next();
             System.out.print(menuItem.getName() + ", ");

@@ -1,11 +1,13 @@
 package domein;
 
-public interface GumballMachineRemote {
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-    int getCount();
+public interface GumballMachineRemote extends Remote {
 
-    String getLocation();
+    int getCount() throws RemoteException;
 
-    String getState();
+    String getLocation() throws RemoteException;
 
+    String getState() throws RemoteException;
 }

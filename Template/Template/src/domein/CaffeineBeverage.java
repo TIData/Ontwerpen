@@ -2,7 +2,7 @@ package domein;
 
 public abstract class CaffeineBeverage {
 
-    public void prepareRecipe() {
+    public final void prepareRecipe() {
         boilWater();
         brew();
         pourInCup();

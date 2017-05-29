@@ -12,6 +12,4 @@ public class LightOnCommand implements Command {
     public void execute() {
         light.on();
     }
-    //Execute schakelt verlichting aan, dus undo() schakelt de verlichting uit
-
 }

@@ -18,20 +18,17 @@ public class RemoteLoader {
 
         Light light1 = new Light("Living Room Lighting");
         Light light2 = new Light("Kitchen Room Lighting");
-        //Tv tv = new Tv("Living Room");
         Stereo stereo = new Stereo("Stereo");
-        //Hottub hottub = new Hottub();
 
         LightOnCommand light1On = new LightOnCommand(light1);
         LightOnCommand light2On = new LightOnCommand(light2);
+        
         StereoOnWithCDCommand stereoOn = new StereoOnWithCDCommand(stereo);
-        //TvOnCommand tvOn = new TvOnCommand(tv);
-        //HottubOnCommand hottubOn = new HottubOnCommand(hottub);
+        
         LightOffCommand light1Off = new LightOffCommand(light1);
         LightOffCommand light2Off = new LightOffCommand(light2);
         StereoOffCommand stereoOff = new StereoOffCommand(stereo);
-        //TvOffCommand tvOff = new TvOffCommand(tv);
-        //HottubOffCommand hottubOff = new HottubOffCommand(hottub);
+
         Command[] partyOn = {light1On, light2On, stereoOn};
         Command[] partyOff = {light1Off, light2Off, stereoOff};
 
@@ -45,5 +42,4 @@ public class RemoteLoader {
         System.out.println("--- Pushing Macro Off---");
         remoteControl.offButtonWasPushed(0);
     }
-
 }

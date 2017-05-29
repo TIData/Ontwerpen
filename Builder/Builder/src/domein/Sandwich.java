@@ -19,17 +19,6 @@ public class Sandwich {
     public void setBreadType(BreadType breadType) {
         this.breadType = breadType;
     }
-//    public Sandwich(BreadType breadType, boolean isToasted, CheeseType cheeseType,
-//            MeatType meatType,  boolean hasMustard, boolean hasMayo,
-//            List<String> vegetables) {
-//        setBreadType(breadType);
-//        setIsToasted(isToasted);
-//        setCheeseType(cheeseType);
-//        setMeatType(meatType);
-//        setHasMustard(hasMustard);
-//        setHasMayo(hasMayo);
-//        setVegetables(vegetables);
-//    }
 
     public void display() {
 

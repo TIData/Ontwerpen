@@ -1,12 +1,15 @@
 package domein;
 
-public class GumballMachine {
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+public class GumballMachine extends UnicastRemoteObject implements GumballMachineRemote {
 
     private GumballMachineState currentState;
     private int count = 0;
     private String location;
 
-    public GumballMachine(String location, int numberGumballs) {
+    public GumballMachine(String location, int numberGumballs) throws RemoteException {
         this.location = location;
         this.count = numberGumballs;
         toState((numberGumballs > 0) ? new NoQuarterState(this) : new OutOfGumballsState(this));

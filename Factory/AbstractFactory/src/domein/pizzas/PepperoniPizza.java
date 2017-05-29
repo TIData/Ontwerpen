@@ -8,6 +8,7 @@ public class PepperoniPizza extends Pizza {
         super(ingredientFactory);
     }
 
+    @Override
     public void prepare() {
         System.out.println("Preparing " + getName());
         setDough(getPizzaIngredientFactory().createDough());

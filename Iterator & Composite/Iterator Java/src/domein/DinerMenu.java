@@ -3,7 +3,7 @@ package domein;
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class DinerMenu {
+public class DinerMenu implements Menu{
 
     private static final int MAX_ITEMS = 6;
     private int numberOfItems = 0;
@@ -31,7 +31,13 @@ public class DinerMenu {
         }
     }
 
-    public Iterator createIterator() {
+    @Override
+    public Iterator<MenuItem> createIterator() {
         return Arrays.asList(menuItems).iterator();
+    }
+
+    @Override
+    public String getTitle() {
+        return "Dinner menu";
     }
 }

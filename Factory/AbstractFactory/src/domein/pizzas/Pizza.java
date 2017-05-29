@@ -45,6 +45,7 @@ public abstract class Pizza {
         return name;
     }
 
+    @Override
     public String toString() {
         StringBuffer result = new StringBuffer();
         result.append("---- " + name + " ----\n");

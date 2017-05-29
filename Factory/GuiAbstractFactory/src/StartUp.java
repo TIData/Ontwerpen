@@ -1,4 +1,3 @@
-
 import domein.OperatingSystem;
 import domein.Screen;
 
@@ -19,4 +18,5 @@ public class StartUp {
         macScreen.addLabel();
         macScreen.viewComponents();
     }
+
 }

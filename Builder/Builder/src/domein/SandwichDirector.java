@@ -1,6 +1,5 @@
 package domein;
 
-//Makes a sandwich, contains the process for making a sandwich regardless of what type of sandwich it is
 public class SandwichDirector {
 
     private SandwichBuilder builder;
@@ -9,7 +8,6 @@ public class SandwichDirector {
         this.builder = builder;
     }
 
-    //uses builder to create sandwich
     public void buildSandwich() {
         builder.createNewSandwich();
         builder.prepareBread();
@@ -18,7 +16,6 @@ public class SandwichDirector {
         builder.addCondiments();
     }
 
-    //get sandwich back out
     public Sandwich getSandwhich() {
         return builder.getSandwich();
     }

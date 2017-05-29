@@ -1,8 +1,10 @@
 package domein;
 
-abstract class GumballMachineState {
+import java.io.Serializable;
 
-    public GumballMachine gumballMachine;
+abstract class GumballMachineState implements Serializable {
+
+    transient public GumballMachine gumballMachine;
 
     public GumballMachineState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;

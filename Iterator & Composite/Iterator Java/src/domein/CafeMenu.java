@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class CafeMenu {
+public class CafeMenu implements Menu {
 
     private Map<String, MenuItem> menuItems = new HashMap<>();
 
@@ -14,13 +14,18 @@ public class CafeMenu {
         addItem("Burrito", "Burrito", true, 4.29);
     }
 
-    public void addItem(String name, String description, boolean vegetarian,
-            double price) {
+    public void addItem(String name, String description, boolean vegetarian, double price) {
         MenuItem menuItem = new MenuItem(name, description, vegetarian, price);
         menuItems.put(menuItem.getName(), menuItem);
     }
 
-    public Iterator createIterator() {
+    @Override
+    public Iterator<MenuItem> createIterator() {
         return menuItems.values().iterator();
+    }
+
+    @Override
+    public String getTitle() {
+        return "Café menu";  
     }
 }

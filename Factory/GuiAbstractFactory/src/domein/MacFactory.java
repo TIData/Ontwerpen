@@ -2,13 +2,14 @@ package domein;
 
 public class MacFactory implements GuiFactory {
 
-    @Override
     public Component createButton() {
+        // TODO - implement MacFactory.createButton
         return new MacButton();
     }
 
-    @Override
     public Component createLabel() {
+        // TODO - implement MacFactory.createLabel
         return new MacLabel();
     }
+
 }

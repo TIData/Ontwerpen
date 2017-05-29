@@ -2,13 +2,14 @@ package domein;
 
 public class WinFactory implements GuiFactory {
 
-    @Override
     public Component createButton() {
+        // TODO - implement WinFactory.createButton
         return new WinButton();
     }
 
-    @Override
     public Component createLabel() {
+        // TODO - implement WinFactory.createLabel
         return new WinLabel();
     }
+
 }

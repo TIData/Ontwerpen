@@ -2,8 +2,9 @@ package domein;
 
 public class MacButton extends Component {
 
-    @Override
     public void show() {
+        // TODO - implement MacButton.show
         System.out.println("show macButton");
     }
+
 }

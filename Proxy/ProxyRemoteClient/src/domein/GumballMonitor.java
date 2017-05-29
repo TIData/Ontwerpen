@@ -18,6 +18,5 @@ public class GumballMonitor {
         } catch (RemoteException ex) {
             ex.printStackTrace();
         }
-
     }
 }
